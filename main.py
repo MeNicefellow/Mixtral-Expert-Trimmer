@@ -6,7 +6,7 @@ from torch import nn
 os.environ["CUDA_VISIBLE_DEVICES"] = '-1'
 
 
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer, AutoConfig
 
 
 def trim_linear(gate_layer,kept_experts):
@@ -32,6 +32,8 @@ if __name__ == "__main__":
     n_experts = len(kept_experts)
     tokenizer = AutoTokenizer.from_pretrained(model_id)
     model = AutoModelForCausalLM.from_pretrained(model_id, device_map="cpu", trust_remote_code=False)
+    config = AutoConfig.from_pretrained(model_id)
+    config.num_local_experts = n_experts
 
     for i,layer in enumerate(model.model.layers):
         layer.block_sparse_moe.num_experts = n_experts
@@ -41,3 +43,4 @@ if __name__ == "__main__":
 
     tokenizer.save_pretrained(target_dir)
     model.save_pretrained(target_dir)
+    config.save_pretrained(target_dir)
