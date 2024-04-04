@@ -41,6 +41,9 @@ if __name__ == "__main__":
         new_experts = nn.ModuleList([layer.block_sparse_moe.experts[i] for i in kept_experts])
         layer.block_sparse_moe.experts = new_experts
 
+    for param in model.parameters():
+        param.data = param.data.to(torch.bfloat16)
+
     tokenizer.save_pretrained(target_dir)
     model.save_pretrained(target_dir)
     config.save_pretrained(target_dir)
