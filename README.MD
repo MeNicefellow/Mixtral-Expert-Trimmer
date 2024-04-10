@@ -25,7 +25,16 @@ This software is provided "as is", without warranty of any kind, express or impl
 
 Users are responsible for checking and validating the correctness of their configuration files, safetensor files, and binary files generated using the software. The developers assume no responsibility for any errors, omissions, or other issues coming in these files, or any consequences resulting from the use of these files.
 
+## Example Model
+
+An example of a product model created with this tool can be found at [DrNicefellow/Mixtral-6x7B-Instruct-v0.1-bfloat16-Trimmed024567](https://huggingface.co/DrNicefellow/Mixtral-6x7B-Instruct-v0.1-bfloat16-Trimmed024567) on Hugging Face Model Hub.
 
 ## License
 
 This project is licensed under the terms of the Apache License 2.0.
+
+
+
+## Feeling Generous? 😊
+
+Eager to buy me a cup of 2$ coffe or iced tea?🍵☕ Sure, here is the link: [https://ko-fi.com/drnicefellow](https://ko-fi.com/drnicefellow). Please add a note on which one you want me to drink?
