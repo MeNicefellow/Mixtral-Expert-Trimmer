@@ -34,7 +34,9 @@ Users are responsible for checking and validating the correctness of their confi
 
 This project is licensed under the terms of the Apache License 2.0.
 
+## Discord Server
 
+Join our Discord server [here](https://discord.gg/xhcBDEM3).
 
 ## Feeling Generous? 😊
 
