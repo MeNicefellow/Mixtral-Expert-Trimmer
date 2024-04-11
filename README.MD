@@ -22,6 +22,9 @@ Sure, you can add a disclaimer section to your `README.MD` file. Here's an examp
 
 An example of a product model created with this tool can be found at [DrNicefellow/Mixtral-6x7B-Instruct-v0.1-bfloat16-Trimmed024567](https://huggingface.co/DrNicefellow/Mixtral-6x7B-Instruct-v0.1-bfloat16-Trimmed024567) on Hugging Face Model Hub.
 
+## Limitations
+
+Currently, this tool trims the same indices of experts at each block/layer. Please note that the indices at different blocks/layers are irrelevant. This means that the tool does not support trimming different indices of experts at different blocks/layers. 
 
 ## Disclaimer
 
