@@ -20,6 +20,7 @@ def parse_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument('--model_id', default="/workspace/text-generation-webui2/models/mistralai_Mixtral-8x7B-Instruct-v0.1")
     parser.add_argument('--target_dir', default="/src/models/mistralai_Mixtral-6x7B-Instruct-v0.1")
+    parser.add_argument('--load_in_8bit', action='store_true')
     parser.add_argument('--kept_experts', nargs='+', type=int, default=[0,2,4,5,6,7])
     return parser.parse_args()
 
@@ -27,11 +28,17 @@ if __name__ == "__main__":
     args = parse_arguments()
     model_id = args.model_id
     target_dir = args.target_dir
+    load_in_8bit = args.load_in_8bit
     kept_experts = args.kept_experts
 
     n_experts = len(kept_experts)
     tokenizer = AutoTokenizer.from_pretrained(model_id)
-    model = AutoModelForCausalLM.from_pretrained(model_id, device_map="cpu", trust_remote_code=False)
+    if load_in_8bit:
+        print("loading in 8bit")
+        model = AutoModelForCausalLM.from_pretrained(model_id, device_map="cpu", trust_remote_code=False,load_in_8bit=True)
+    else:
+        print("Not loading 8bit")
+        model = AutoModelForCausalLM.from_pretrained(model_id, device_map="cpu", trust_remote_code=False)
     config = AutoConfig.from_pretrained(model_id)
     config.num_local_experts = n_experts
 
