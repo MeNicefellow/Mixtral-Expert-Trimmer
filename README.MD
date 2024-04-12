@@ -37,6 +37,10 @@ Users are responsible for checking and validating the correctness of their confi
 
 This project is licensed under the terms of the Apache License 2.0.
 
+## Relevant Project
+
+[Mixtral Model Expert Extractor](https://github.com/MeNicefellow/Mixtral-Model-Expert-Extractor) is a related project that extracts all the experts from a Mixtral model to form n Mistral models.
+
 ## Discord Server
 
 Join our Discord server [here](https://discord.gg/xhcBDEM3).
